@@ -18,8 +18,11 @@ const io = new Server(server, {
 io.on("connection", (socket) => {
 	console.log(`User Connected: ${socket.id}`);
 
-	// socket.on('game-dev-webhook', (data) => {
-	// })
+	socket.on('game-dev-webhook-test', (data) => {
+		console.log('game-dev-webhook-test', data);
+
+		socket.emit('game-dev-webhook-test-catcher', data);
+	})
 });
 
 server.listen(4000, () => 'Server is running');
