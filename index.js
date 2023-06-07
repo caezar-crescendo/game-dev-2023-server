@@ -18,10 +18,17 @@ const io = new Server(server, {
 io.on("connection", (socket) => {
 	console.log(`User Connected: ${socket.id}`);
 
-	socket.on('game-dev-webhook-test', (data) => {
-		console.log('game-dev-webhook-test', data);
+	socket.on('user.create', (data) => {
+		console.log('user.create', data);
 
-		socket.emit('game-dev-webhook-test-catcher', data);
+		socket.emit('users.list.update', data);
+		socket.broadcast.emit('users.list.update', data);
+	});
+
+	socket.on('blocks', (data) => {
+		console.log('blocks', data);
+
+		socket.broadcast.emit('blocks.list.update', data);
 	})
 });
 
