@@ -13,6 +13,7 @@ const io = new Server(server, {
 		origin: [
 			'http://localhost:9019',
 			'https://resilient-quokka-ff7418.netlify.app',
+			'https://game-dev-2023.vercel.app',
 		],
 		methods: ['GET', 'POST'],
 	},
