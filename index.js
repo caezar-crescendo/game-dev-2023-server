@@ -35,6 +35,12 @@ io.on("connection", (socket) => {
 
 		socket.broadcast.emit('blocks.list.update', data);
 	})
+
+	socket.on('gameSettings', (data) => {
+		console.log('gameSettings.list.update', data);
+
+		socket.broadcast.emit('gameSettings.list.update', data);
+	})
 });
 
 server.listen(4000, () => 'Server is running');
